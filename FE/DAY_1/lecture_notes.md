@@ -72,6 +72,24 @@
   - Tag
   - ::Pseudo-selectors
 
+```CSS
+#id {
+  property: value;
+}
+
+.class {
+  property: value;
+}
+
+tag {
+  property: value;
+}
+
+tag:pseudo {
+  property: value;
+}
+```
+
 - Specificity Rules
   - Inline >> ID >> Class >> Tag
 
