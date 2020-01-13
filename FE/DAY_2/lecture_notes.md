@@ -60,3 +60,11 @@ __paginate: false
 - Flex is one of the most used and most useful display properties and really helps you set up and design a layout really quickly
 - the `display:flex` is applied to the PARENT or to the CONTAINER div that contains all the child elements you want to arrange
 - and with `display:flex` comes a whole range of flexbox properties that you can use and here are some examples
+  - `flex-direction` either column or row i.e. horizontally or vertically
+  - `flex-wrap` either wrap or nowrap i.e. will the items wrap onto the next line or will they squeeze all into one row
+
+---
+
+- `justify-content` justifies items on the x axis i.e. horizontally (center, space-between, space-around, space-evenly, flex-end, flex-start)
+- `align-items` aligns items on the y axis i.e. vertically (center, flex-end, flex-start, stretch)
+- `align-content` will only work if `flex:wrap` has been used and there are multiple items on different lines (center, space-between, space-around, space evenly, stretch, flex-end, flex-start)
