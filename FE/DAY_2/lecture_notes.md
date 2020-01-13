@@ -32,13 +32,31 @@ __paginate: false
 ### Positioning
 
 - 4 types of positions:-
-  - Static (default);
+  - Static (default)
+    - Every element is static by default;
   - Relative;
     - Takes up the space it was given;
     - Can be assigned top, right, left, bottom properties and other HTML elements won't take its place if it's moved about;
-  - Absolute;
-    - Is "fixed" absolutely, to the nearest parent element that has `position: relative`
-    - Otherwise, is fixed to the browser
-    - Can be assigned top, right, left, bottom properties and other HTML elements WILL take up it's space
-  - Fixed
-    - Is literally just fixed to the browser
+
+---
+
+- Absolute;
+  - Is "fixed" absolutely, to the nearest parent element that has `position: relative`
+  - Otherwise, is fixed to the browser
+  - Can be assigned top, right, left, bottom properties and other HTML elements WILL take up it's space
+- Fixed
+  - Is literally just fixed to the browser
+
+---
+
+- \*Bonus: Sticky
+  - Toggles between relative and fixed and is positioned based on the user's scroll position
+  - Can be assigned a top, right, left, bottom property (but is usually assigned a top value)
+
+---
+
+### Flex
+
+- Flex is one of the most used and most useful display properties and really helps you set up and design a layout really quickly
+- the `display:flex` is applied to the PARENT or to the CONTAINER div that contains all the child elements you want to arrange
+- and with `display:flex` comes a whole range of flexbox properties that you can use and here are some examples
