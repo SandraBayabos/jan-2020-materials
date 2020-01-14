@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(68, 68, 68);
+  width: 100vw;
+}
+
+.container {
+  width: 100%;
+  padding-left: 150px;
+  padding-right: 150px;
+  box-sizing: border-box;
+}
+
+.generate-btn {
+  width: 170px;
+  height: 70px;
+  padding: 10px;
+  margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 1.5px solid white;
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+@keyframes zoomie {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.generate-btn:hover {
+  background-color: white;
+  color: rgb(68, 68, 68);
+  animation: zoomie 0.5s infinite alternate;
+}
+
+.group-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#message {
+  text-align: center;
+  color: white;
+}
+
+.group-card {
+  width: 23%;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+hr {
+  border: 1px solid white;
+}
