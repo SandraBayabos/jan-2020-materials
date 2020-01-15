@@ -32,6 +32,7 @@ If-Else/Conditional statements:-
 - how it's written
 - order of priority
 - multiple conditions using && and ||
+- == (only the value, known as loose equality) and === (value and type) e.g. string == number
 
 BMI Calculator & FizzBuzz
 
