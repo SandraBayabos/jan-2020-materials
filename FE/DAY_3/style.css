@@ -1,0 +1,13 @@
+body {
+  background-color: lightblue;
+}
+
+@media (min-width: 1000px) {
+  body {
+    background-color: tomato;
+  }
+
+  h1 {
+    font-size: 15px;
+  }
+}

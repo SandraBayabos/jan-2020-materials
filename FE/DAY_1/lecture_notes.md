@@ -1,9 +1,11 @@
 ### Lecture 1 - Intro to FE Development & HTML
 
 - What is Frontend Web Development?
+
   - The "What you see" of the web
 
 - How do websites work?
+
   - File are hosted online
   - Requests are made when a user visits the web address
   - In return the HTML, CSS and JS files are returned to the client browser and the browser will display them
@@ -33,6 +35,7 @@
 ```
 
 - The basic tags
+
   - Heading Tags h1-h6
   - Paragraph Tags
   - Anchor Tags - Hyperlinks
@@ -46,6 +49,7 @@
   - Block, Inline, Inline Block
 
 - Semantic Tags
+
   - Main
   - Article
   - Section
@@ -62,15 +66,30 @@
 ### Lecture 2 - Styling with CSS
 
 - Where to put styling?
+
   - Inline styling - Least Preffered [Messy, Becomes Unmaintainable Fast]
   - In the head - Avoid unless absolutely necessary [Clutters HTML, Makes readbility of HTML document difficult]
   - Link through stylesheet - Preferred Methods [Seperates HTML & CSS into more manageable files, Does mean switching between documents when developing]
 
 - Selectors
+
   - ID
   - Class
   - Tag
   - ::Pseudo-selectors
+
+- Box Model
+
+  - Content box vs Border Box
+
+- Padding
+- Margin
+- Border
+- Width & Height
+
+- Fonts
+
+- CSS Filters
 
 ```CSS
 #id {
@@ -92,5 +111,3 @@ tag:pseudo {
 
 - Specificity Rules
   - Inline >> ID >> Class >> Tag
-
-
