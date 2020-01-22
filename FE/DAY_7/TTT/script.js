@@ -42,7 +42,7 @@ const changePlayer = () => {
 };
 
 const checkWin = () => {
-  const winCombo = [
+  const winCombos = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -55,18 +55,22 @@ const checkWin = () => {
   let winner = false;
   let winningCombo = [];
 
-  winCombo.forEach(combo => {
-    let boardCheck = [board[combo[0]], board[combo[1]], board[combo[2]]];
+  winCombos.forEach(combo => {
+    let boardCheck = [board[combo[0]], board[combo[1]], board[combo[2]]]; // ["", "X", ""]
 
+    // let boardCheck = combo.map((index) => {
+    //   return board[index]
+    // })
+    // "XXX" === "XXX"
     if (boardCheck.join("") === currentPlayer.repeat(3)) {
       winningCombo = combo;
       winner = true;
     }
   });
 
-  if (winner) {
-    setWinStyle(winningCombo);
-  }
+  // if (winner) {
+  //   setWinStyle(winningCombo);
+  // }
 
   return winner;
 };
