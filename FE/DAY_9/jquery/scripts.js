@@ -19,13 +19,13 @@ $("p").click(function() {
 
 // other examples
 
-// $("#second-para").mouseenter(function() {
-//   $(this)
-//     .css({ "font-size": "1.5rem" })
-//     .mouseleave(function() {
-//       $(this).css({ "font-size": "1rem" });
-//     });
-// });
+$("#second-para").mouseenter(function() {
+  $(this)
+    .css({ "font-size": "1.5rem" })
+    .mouseleave(function() {
+      $(this).css({ "font-size": "1rem" });
+    });
+});
 
 const secondPara = document.getElementById("second-para");
 secondPara.addEventListener("mouseover", () => {
