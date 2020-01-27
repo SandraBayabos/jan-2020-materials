@@ -1,0 +1,14 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #be8abf;
+}
+
+#message-list {
+  width: 80%;
+  height: 80%;
+  border: 0.5px solid #f8c3af;
+  border-radius: 20px;
+}
