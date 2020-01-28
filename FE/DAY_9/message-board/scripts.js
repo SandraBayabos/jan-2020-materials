@@ -1,7 +1,11 @@
 $.ajax({
   method: "get",
   url: "https://next-message-board.herokuapp.com/messages",
+  beforeSend: function() {
+    $("#loader").show();
+  },
   success: function(messages) {
+    $("#loader").hide();
     console.log(messages);
     $("#message-list").html("");
     messages.forEach(msg => {
@@ -16,6 +20,14 @@ $.ajax({
           <button class="delete-btn">Delete</button>
         </div>
       `);
+      let messageCards = document.querySelectorAll(".card");
+      messageCards.forEach(card => {
+        let x = Math.floor(Math.random() * 256);
+        let y = Math.floor(Math.random() * 256);
+        let z = Math.floor(Math.random() * 256);
+        let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+        card.style.backgroundColor = bgColor;
+      });
     });
   }
 });
@@ -31,9 +43,12 @@ $("form").submit(function(event) {
     data: {
       text: myMessage
     },
+    beforeSend: function() {
+      $("#loader").show();
+    },
     success: function(data) {
+      $("#loader").hide();
       console.log(data);
-
       const messages = data.message;
       $("#message-list").prepend(`
       <div id=${messages.id} class="card text-center" style="width: 300px;">
@@ -46,6 +61,14 @@ $("form").submit(function(event) {
         <button class="delete-btn">Delete</button>
       </div>
     `);
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        let x = Math.floor(Math.random() * 256);
+        let y = Math.floor(Math.random() * 256);
+        let z = Math.floor(Math.random() * 256);
+        let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+        card.style.backgroundColor = bgColor;
+      });
     },
     error: function(error) {
       console.log(error);
