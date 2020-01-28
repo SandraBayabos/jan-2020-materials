@@ -8,6 +8,7 @@ $.ajax({
     $("#loader").hide();
     console.log(messages);
     $("#message-list").html("");
+
     messages.forEach(msg => {
       $("#message-list").append(`
         <div id=${msg.id} class="card text-center" style="width: 300px;">
@@ -20,6 +21,7 @@ $.ajax({
           <button class="delete-btn">Delete</button>
         </div>
       `);
+
       let messageCards = document.querySelectorAll(".card");
       messageCards.forEach(card => {
         let x = Math.floor(Math.random() * 256);
@@ -78,8 +80,9 @@ $("form").submit(function(event) {
 
 $("#message-list").on("click", ".delete-btn", function(e) {
   e.preventDefault();
-  const messageId = e.target.parentNode.id;
+  console.log(e.target);
   const message = e.target.parentNode;
+  const messageId = e.target.parentNode.id;
   $.ajax({
     method: "post",
     url: `https://next-message-board.herokuapp.com/messages/delete/${messageId}`,
