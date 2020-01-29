@@ -32,14 +32,6 @@ const book = favouriteCharacter("Harry Potter", 12);
 console.log(book);
 
 // ES6
-// If what you are returning is the same as in the parameters then you don't need to repeat yourself
-// Just using shorthand
-const favouriteCharacter = (myName, myAge) => {
-  return { myName, myAge };
-};
-console.log(favouriteCharacter("Harry Potter", 25));
-
-// OR
 
 function extraCharacters(myName, myAge) {
   return {
@@ -49,6 +41,15 @@ function extraCharacters(myName, myAge) {
 }
 
 console.log(extraCharacters("Ron Weasley", 35));
+
+// OR WITH ARROW FUNCTION
+
+// If what you are returning is the same as in the parameters then you don't need to repeat yourself
+// Just using shorthand
+const favouriteCharacter = (myName, myAge) => {
+  return { myName, myAge };
+};
+console.log(favouriteCharacter("Harry Potter", 25));
 
 // Just with an object
 
@@ -61,6 +62,8 @@ const cast = {
 };
 
 console.log(cast);
+
+// ignore the following example
 
 const user = {
   firstName: "Joey",
@@ -173,12 +176,20 @@ const newerList = shoppingList.map(item => item);
 console.log(newerList); // will still return to us the new array
 
 //filter
-const filterList = shoppingList.filter(item => {
+const filteredList = shoppingList.filter(item => {
   return item === "Tomatoes"; // will return a new array with JUST tomatoes
   // return item !== "Tomatoes"; // will return everything else other than Tomatoes
 });
 
 // DESTRUCTURING
+
+// destructuring an array
+
+const languages = ["Javascript", "Python", "Go", "Ruby", "Dart"];
+
+const [langOne, langTwo, langThree, langFour, langFive] = languages;
+
+console.log(langFive); // should return me Dart
 
 // destructuring an object
 
@@ -203,4 +214,130 @@ console.log(firstName, lastName, age);
 
 const { firstName, lastName, age = 4 } = newUser;
 
+// I can also select only the specific items that i want from a very nested object
+
+const pokemon = {
+  id: 1,
+  name: "Pikachu",
+  type: "Electric",
+  abilities: {
+    mainAbility: "Static",
+    hiddenAbility: "Lightning Rod",
+    ultimateAbility: "Cuteness"
+  },
+  evolution: {
+    first: "Pichu",
+    second: "Pikachu",
+    third: "Raichu"
+  }
+};
+
+const {
+  id,
+  name,
+  abilities: { mainAbility, ultimateAbility },
+  evolution: { second }
+} = pokemon;
+
+console.log(name);
+console.log(mainAbility, ultimateAbility);
+console.log(second);
+
+// another great thing about destructuring is that I can use it with functions, which will make my life a lot easier:-
+
+const whoIsMyPokemon = ({
+  name,
+  type,
+  abilities: { mainAbility },
+  evolution: { first }
+}) => {
+  console.log(
+    `My pokemon's name is ${name} and he is a ${type} type pokemon. His main ability is ${mainAbility} and he is currently in his first evolution as ${first}`
+  );
+};
+
+whoIsMyPokemon(pokemon);
+
 // SPREAD SYNTAX
+
+// Spreading an array
+
+const mentors = ["Sandra", "Matt", "Liren", "Jinqwen", "Nic"];
+
+const [a, b, ...offMentors] = mentors;
+
+console.log(offMentors); // should return Liren, Jinqwen, Nic
+
+// combining two arrays
+const marketingTeam = ["Peony", "Jess", "Wan"];
+
+const employees = [...mentors, ...marketingTeam];
+
+console.log(employees);
+
+// note the difference between this:-
+// this will return to me an array of two arrays
+const team = [mentors, marketingTeam];
+
+console.log(team);
+
+// adding new users
+
+const newMentor = "Ming Hao";
+
+const updatedMentorList = [...mentors, newMentor];
+
+console.log(updatedMentorList);
+
+// Spread
+
+// spreading an object
+
+let pokemon = {
+  id: 1,
+  name: "Pikachu",
+  type: "Electric",
+  abilities: {
+    mainAbility: "Static",
+    hiddenAbility: "Lightning Rod",
+    ultimateAbility: "Cuteness"
+  },
+  evolution: {
+    first: "Pichu",
+    second: "Pikachu",
+    third: "Raichu"
+  }
+};
+
+const { id, name, type, ...rest } = pokemon;
+
+console.log(rest); // will return to me abilities and evolution in an object
+
+// merging two objects using the spread syntax
+
+const trainer = {
+  owner: "Ash"
+};
+
+pokemon = {
+  id: 1,
+  name: "Pikachu",
+  type: "Electric",
+  ...trainer,
+  abilities: {
+    mainAbility: "Static",
+    hiddenAbility: "Lightning Rod",
+    ultimateAbility: "Cuteness"
+  },
+  evolution: {
+    first: "Pichu",
+    second: "Pikachu",
+    third: "Raichu"
+  }
+};
+
+// or I can create a new object entirely with the spread syntax
+
+const newPokemonDetails = { ...pokemon, ...trainer };
+
+console.log(newPokemonDetails);
