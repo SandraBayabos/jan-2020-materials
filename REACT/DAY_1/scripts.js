@@ -64,7 +64,9 @@ const cast = {
 console.log(cast);
 
 // ignore the following example
-
+const randomString = Math.random()
+  .toString(36)
+  .substring(6);
 const user = {
   firstName: "Joey",
   lastName: "Tribbiani",
@@ -77,10 +79,29 @@ const user = {
     },
     getJoke: function() {
       console.log("A lawyer walks into a bar exam");
+    }
+  },
+  hobbies: [
+    function() {
+      console.log("I want to sleep");
     },
-    hobbies: [["I like to eat"], [" love to sleep"], ["I am not real"]]
-  }
+    function() {
+      console.log("I want sushi");
+    },
+    function() {
+      console.log("Fuck this shit");
+    }
+  ],
+  randomString
 };
+
+obj = {
+  key1: "Hello"
+};
+
+let randomString = "key1";
+
+obj[randomString]; // "hello"
 
 // FUNCTIONS
 
@@ -180,8 +201,6 @@ const filteredList = shoppingList.filter(item => {
   return item === "Tomatoes"; // will return a new array with JUST tomatoes
   // return item !== "Tomatoes"; // will return everything else other than Tomatoes
 });
-
-// DESTRUCTURING
 
 // destructuring an array
 
@@ -341,3 +360,165 @@ pokemon = {
 const newPokemonDetails = { ...pokemon, ...trainer };
 
 console.log(newPokemonDetails);
+
+//
+
+console.log(addAndMultiply(4, 8, 5));
+
+const selfIntro = (name, hobby, count) =>
+  `My name is ${name}. I practice ${hobby} ${count} times a day.`;
+console.log(selfIntro("Shanqyeet", "Kendama", "18"));
+
+let squared = x => x * x;
+console.log(squared(2));
+
+const prices = [1.0, 2.0, 3.0, 4.0];
+const gst = 0.06;
+const pricesWithTax = prices.map(x => x * 1.06);
+console.log(pricesWithTax);
+
+const prices = [1.0, 2.0, 3.0, 4.0];
+const gst = 0.06;
+const pricesWithTax = [];
+prices.forEach(
+  (tax = x => {
+    tax = x * 1.06;
+    pricesWithTax.push(tax);
+  })
+);
+// prices.forEach(function(x) {
+//     tax =  x * 1.06;
+//     pricesWithTax.push(tax);
+// })
+console.log(pricesWithTax);
+
+class Car {
+  constructor(owner) {
+    this.brand = "Tesla";
+    this.model = "Model X";
+    this.owner = owner;
+  }
+
+  drive() {
+    console.log(`${this.owner.name} is driving his ${this.brand}`);
+  }
+
+  doSomethingTwice(action) {
+    for (let i = 0; i < 2; i++) {
+      action();
+    }
+  }
+}
+
+const mycar = new Car({
+  name: "Nicholas",
+  age: 21,
+  gender: "male"
+});
+
+mycar.doSomethingTwice(mycar.drive.bind(mycar));
+
+class Car {
+  constructor(owner) {
+    this.brand = "Tesla";
+    this.model = "Model X";
+    this.owner = owner;
+  }
+
+  drive = () => {
+    console.log(`${this.owner.name} is driving his ${this.brand}`);
+  };
+
+  doSomethingTwice(action) {
+    for (let i = 0; i < 2; i++) {
+      action();
+    }
+  }
+}
+
+const mycar = new Car({
+  name: "Nicholas",
+  age: 21,
+  gender: "male"
+});
+
+mycar.doSomethingTwice(mycar.drive);
+
+const getState = state => {
+  // complete this
+  logstate = () => console.log(`Your state is ${state}`);
+  return [state, logstate];
+};
+
+const [state, logState] = getState("stable");
+console.log(state); // The console should print out 'stable'
+logState(); // The console should print out 'Your state is stable'
+
+const user = {
+  id: 101,
+  email: "josh@nextacademy.com",
+  personalInfo: {
+    name: "Josh",
+    address: {
+      line1: "AG-7, Glomac Damansara",
+      state: "Kuala Lumpur",
+      country: "Malaysia"
+    }
+  }
+};
+const {
+  gender = "male",
+  email,
+  personalInfo: {
+    address: { line1, state, country }
+  }
+} = user;
+
+const josh = {
+  gender,
+  email,
+  personalInfo: {
+    address: `${line1}, ${state}, ${country}`
+  }
+};
+console.log(josh);
+
+const discount = {
+  rate: 0.5,
+  reason: "New Year Sales"
+};
+
+const products = [
+  {
+    name: "Laptop",
+    price: 800
+  },
+  {
+    name: "Keyboard",
+    price: 160
+  },
+  {
+    name: "Mouse",
+    price: 70
+  }
+];
+
+const updatedProducts = products.map(product => {
+  // complete your code
+  let newPrice = product.price * discount.rate;
+  let updateProducts = { ...product, ...discount, newPrice: newPrice };
+  return updateProducts;
+});
+console.log(updatedProducts);
+
+//
+const getState = oldState => {
+  changeState = function() {
+    console.log(`Your state is ${oldState}`);
+  };
+  return [oldState, changeState];
+};
+
+const [state, logState] = getState("stable");
+console.log(state); // The console should print out 'stable'
+logState(); // The console should print out 'Your state is stable'
